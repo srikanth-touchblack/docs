@@ -1,0 +1,285 @@
+## OverView
+
+Touch Black is a project management platform for film/ad production. Besides reserving shoot studios and equipment, the marketplace allows producers to hire technical talent and actors. Furthermore, it allows for invoicing and payments. Producers will identify talent, book schedules, and pay for the talent on Touch Black. TouchBlack is also working on automating GST and TDS coordination issues for the producer.
+
+## Tech Stack 
+React Native,  
+Typescript,  
+React-query for network caching,  
+Axios for network calls,  
+Reanimated for animations,  
+React-native-unistyles for styling,  
+RNFirebase for remote-notifications, analytics, crashlytics,  
+Notifee for local-notifications,  
+React-hook-forms for forms,  
+Flashlist for large lists of data,  
+Lodash for diffing two values,  
+React-native-awesome-gallery for gallery,  
+React-native-calendars for displaying calendars and timeline view,  
+React-native-date-picker for date picking,  
+React-native-document-picker for document picking,  
+React-native-gesture-handler for gesture handling,  
+React-native-image-picker for image picking,  
+React-native-mmkv to store key value pairs locally,  
+React-native-render-html to render html views,  
+React-native-restart for restarting the app,  
+React-native-svg to display vector icons,  
+React-native-vimeo-iframe to play vimeo videos,  
+React-native-webview to enable video plays in webview,  
+React-native-youtube-iframe to play youtube videos,  
+Rn-unique-identifier-oldarch to check whether the app was installed on this device earlier or not and uniquely identify each device,  
+zod for form validations,  
+husky and lint-staged for running git hooks,  
+eslint for linting,  
+commitlint for commit message checking,  
+prettier for prettyfying,  
+
+    
+## Features
+### Device Registration
+
+### Auth
+#### Login
+#### Signup
+#### Account Selection & different types of accounts
+
+### Navigation
+
+### Home Screen
+
+### Blackbook
+
+### Search
+### Projects
+### Calendar
+#### Talent Calendar
+#### Producer Calendar
+#### Studio Calendar
+### Messages
+### Notifications
+### Profile
+
+#### Talent Profile
+##### Talent Showreels
+##### Talent Details
+##### Other Films
+
+#### Producer Profile
+##### Producer Films
+	- Showreel Search & Filters
+##### Business Info
+##### Team
+	- Team Search
+
+#### Studio Profile
+
+### Profile Share
+### Deep Linking
+    
+
+## Getting Started
+
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+
+### Step 1: Start the Metro Server
+
+First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+
+To start Metro, run the following command from the _root_ of your React Native project:
+```bash
+# using npm
+npm start
+
+# OR using Yarn
+yarn start
+```
+
+### Step 2: Start your Application
+
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+
+### For Android
+
+```bash
+# using npm
+npm run android
+
+# OR using Yarn
+yarn android
+```
+
+### For iOS
+
+```bash
+# using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+### Step 3: Modifying your App
+
+Now that you have successfully run the app, let's modify it.
+
+1. Open `App.tsx` in your text editor of choice and edit some lines.
+2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+
+    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+
+### Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :tada:
+      
+    
+
+## Pre-requisites
+List software requirements, including Node.js, React Native CLI, Xcode, Android Studio, etc.
+    
+## Installation
+step-by-step instructions on setting up the app locally:
+
+- simply clone the repo
+	```git clone git@github.com:TouchBlack/app.git```
+    
+- Install dependencies using npm install or yarn install
+	```yarn install```
+
+- Setting up environment variables (if applicable)
+	Talk to Devops person and get the current environment variables and set 'em locally
+    
+- Running the app on Android and iOS
+```yarn start```
+    
+
+## App Architecture  
+Custom Hook-based Architecture with React Query. It combines the following principles:
+
+    - Custom Hooks with React Query: For network calls and caching.  
+    - State Management with Context API and Local States: Leveraging Context for app-wide state and local state for more granular control.  
+    - Design System and Icon System: Organized as separate reusable packages to maintain consistency across the app.  
+
+This architecture reflects a modular, scalable, and maintainable approach, where the backend is treated as the source of truth and network caching is used to decrease the load on the server.   
+
+## Folder Structure
+Explains the folder structure and purpose of each directory and file 
+```plaintext
+.husky/                 // contains the git hooks
+__tests__/              // contains all the tests
+android/                // contains all the android-specific platform code
+assets/                 
+  fonts/                // contains all the fonts used
+  images/               // contains all the images used
+  svgs/                 // contains all the svgs used
+    errors/             
+      index.tsx         // contains all the empty states, no access illustrations or vector icons
+
+components/             // contains all the components
+  drawer/
+    Drawer.tsx			// contains all the sheets or drawers info used in the application
+  drawerNavigator/
+    Filter/
+      AwardsFilter/           // contains awards filter component
+      BrandsFilter/           // contains brands filter component
+      ConnectionsFilter/      // contains connection filter component
+      DurationFilter/         // contains duration filter component
+      EducationFilter/        // contains education filter component
+      GenreFilter/            // contains genre filter component
+      HomeLocationFilter/     // contains home location filter component
+      IndustryFilter/         // contains industry filter component
+      LanguageFilter/         // contains language filter component
+      RatePerShootDay/        // contains rate per shoot day filter component
+      TalentRoleFilter/       // contains talent role filter component
+      TypesOfFilmsFilter/     // contains types of films filter component
+      WorkedWithFilter/       // contains worked with filter component
+      YearOfReleaseFilter/    // contains year of release filter component
+      CustomMarker.tsx        // contains custom marker component
+      Filter.tsx
+      FilterBody.tsx
+      FilterContext.tsx       // filter context used for search filters
+      FilterFooter.tsx        // filter footer component
+      FilterFormSchema.tsx    // schema for filter
+      FilterHeader.tsx        // filter header component
+      getCurrentFilter.tsx    // method to check which filter is currently applied, reads the data from FilterContext's state
+    TalentListByProfession/
+      TalentListByProfession.tsx        // upon pressing the arrow of Talent Roles in home screen and clicking on any of the role, gets redirected to this screen
+      TalentListByProfessionBody.tsx    // used in TalentListByProfession.tsx
+    addToBlackBook/
+      AddToBlackBook.tsx                // add to blackbook action gets redirected to this screen
+      AddToBlackBookSchema.ts           // schema for add to blackbook form
+      addToBlackBookUtils.ts            // utility function used in add to blackbook
+    professionsList/
+      ProfessionsList.tsx               // upon pressing the arrow of Talent Roles in home screen, gets redirected to this screen 
+      ProfessionsListBody.tsx           // used in ProfessionsList.tsx
+      ProfessionsListHeader.tsx         // used in ProfessionsList.tsx
+    DrawerNavigator.tsx                 // Drawer Navigator for app-wide drawers (not being used anymore)
+  errors/                               // Contains all the empty state, no data etc. components used as ListEmptyViewComponent in Lists
+  home/
+    dashboard/                          // contains the dashboard view used in Home screen
+    films/
+      FilmThumbnailItem.tsx             // component of the film item used in home screen
+    knowTheApp/
+      KnowTheApp.tsx                    // know the app view used in home screen
+    producersList/
+      ProducersList.tsx                 // ProducersList view used in home screen for talent profiles
+    talentIcon/                         // Talent roles section in home screen showing all the different types of talent roles as square boxes
+      ProfessionIconList.tsx            // Talent roles view in home screen
+      TalentIconItem.tsx                // used in ProfessionIconList.tsx
+    workedWith/                         // Worked with view in home screen for talent profiles
+      WorkedWith.tsx                    // worked with view in home screen
+      WorkedWithListItem.tsx            // used in WorkedWith.tsx
+      WorkedWithListRenderer.tsx        // used in WorkedWith.tsx
+      WorkedWithMockData.tsx            // not used, mock data
+    HomeBlackbook.tsx                   // Blackbook section in home screen for producer profiles
+    BlackbookUserItem.tsx               // used in HomeBlackbook.tsx
+    Heading.tsx                         // Heading component used across the application
+    HomeHeader.tsx                      // Header used in home screen as it's different and only used in the home screen
+    HomeProjects.tsx                    // Projects section in home screen for producer profiles
+    HomeStudios.tsx                     // Hire Locations section home screen for producer profiles
+    MostViewedTalent.tsx                // Most Viewed talent section in home screen for producer profiles
+    StudioItem.tsx                      // used in HomeStudios.tsx
+    TalentThumbnailItem.tsx             // used in MostViewedTalent.tsx
+  loaders/                              // contains all the loader views
+  profile/                              // contains all the profile views
+  search/                               // contains search-related components
+  sheets/                               // contains sheet-related components
+  tabNavigator/                         // contains tab navigator components
+
+constants/              // contains all the constants and endpoints constants
+ios/                    // contains all the ios-specific platform code
+models/                 // contains all the enums, types, and interfaces and data models
+network/                // contains all the network calls
+node_modules/           // contains all the dependencies code
+presenters/             // contains all the views and screens used across the app
+utils/                  // contains all the utility files
+
+.eslintrc.js            // Eslint config
+.gitignore              // Git Ignore file
+.prettierrc.js          // Prettier Config
+App.tsx                 // Main App file
+README.md               // Simple Readme file
+app.json                // App json which contains basic info i.e. app name etc.
+babel.config.js         // Babel config
+commitlint.config.js    // Commit Lint config
+index.d.ts              // Type Declaration file, mention all the types which're gonna be used across the app
+index.js                // Entry point of the application, app start file where react native is getting initialised
+jest.config.js          // Jest config
+metro.config.js         // Metro config
+package.json            // Consolidated info of packages used
+react-native.config.js  // React Native config
+sheets.tsx              // Drawer/Sheets interface
+tsconfig.json           // Typescript config
+unistyles.ts            // Unistyles config
+```
+
+
+    
+## Navigation
+[Read Navigation section](#navigation)
+    
+## State Management
+[Read Context Data section](#context-data)
