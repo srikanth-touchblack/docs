@@ -3,83 +3,137 @@
 Touch Black is a project management platform for film/ad production. Besides reserving shoot studios and equipment, the marketplace allows producers to hire technical talent and actors. Furthermore, it allows for invoicing and payments. Producers will identify talent, book schedules, and pay for the talent on Touch Black. TouchBlack is also working on automating GST and TDS coordination issues for the producer.
 
 ## Tech Stack 
-React Native,  
-Typescript,  
-React-query for network caching,  
-Axios for network calls,  
-Reanimated for animations,  
-React-native-unistyles for styling,  
-RNFirebase for remote-notifications, analytics, crashlytics,  
-Notifee for local-notifications,  
-React-hook-forms for forms,  
-Flashlist for large lists of data,  
-Lodash for diffing two values,  
-React-native-awesome-gallery for gallery,  
-React-native-calendars for displaying calendars and timeline view,  
-React-native-date-picker for date picking,  
-React-native-document-picker for document picking,  
-React-native-gesture-handler for gesture handling,  
-React-native-image-picker for image picking,  
-React-native-mmkv to store key value pairs locally,  
-React-native-render-html to render html views,  
-React-native-restart for restarting the app,  
-React-native-svg to display vector icons,  
-React-native-vimeo-iframe to play vimeo videos,  
-React-native-webview to enable video plays in webview,  
-React-native-youtube-iframe to play youtube videos,  
-Rn-unique-identifier-oldarch to check whether the app was installed on this device earlier or not and uniquely identify each device,  
-zod for form validations,  
-husky and lint-staged for running git hooks,  
-eslint for linting,  
-commitlint for commit message checking,  
-prettier for prettyfying,  
-
+> React Native: https://www.npmjs.com/package/react-native,  
+> Typescript: https://www.npmjs.com/package/typescript,  
+> React-query for network caching: https://www.npmjs.com/package/@tanstack/react-query,  
+> Axios for network calls: https://www.npmjs.com/package/axios,  
+> Reanimated for animations: https://www.npmjs.com/package/react-native-reanimated,  
+> React-native-unistyles for styling: https://www.npmjs.com/package/react-native-unistyles,  
+> RNFirebase for remote-notifications, analytics, crashlytics: https://www.npmjs.com/package/@react-native-firebase/app,  
+> Notifee for local-notifications: https://www.npmjs.com/package/@notifee/react-native,  
+> React-hook-forms for forms: https://www.npmjs.com/package/react-hook-form,  
+> Flashlist for large lists of data: https://www.npmjs.com/package/@shopify/flash-list,  
+> Lodash for diffing two values: https://www.npmjs.com/package/lodash,  
+> React-native-awesome-gallery for gallery: https://www.npmjs.com/package/react-native-awesome-gallery,  
+> React-native-calendars for displaying calendars and timeline view: https://www.npmjs.com/package/react-native-calendars,  
+> React-native-date-picker for date picking: https://www.npmjs.com/package/react-native-date-picker,  
+> React-native-document-picker for document picking: https://www.npmjs.com/package/react-native-document-picker,  
+> React-native-gesture-handler for gesture handling: https://www.npmjs.com/package/react-native-gesture-handler,  
+> React-native-image-picker for image picking: https://www.npmjs.com/package/react-native-image-picker,  
+> React-native-mmkv to store key value pairs locally: https://www.npmjs.com/package/react-native-mmkv,  
+> React-native-render-html to render html views: https://www.npmjs.com/package/react-native-render-html,  
+> React-native-restart for restarting the app: https://www.npmjs.com/package/react-native-restart,  
+> React-native-svg to display vector icons: https://www.npmjs.com/package/react-native-svg,  
+> React-native-vimeo-iframe to play vimeo videos: https://www.npmjs.com/package/react-native-vimeo-iframe,  
+> React-native-webview to enable video plays in webview: https://www.npmjs.com/package/react-native-webview,  
+> React-native-youtube-iframe to play youtube videos: https://www.npmjs.com/package/react-native-youtube-iframe,  
+> Rn-unique-identifier-oldarch to check whether the app was installed on this device earlier or not and uniquely identify each device: https://www.npmjs.com/package/rn-unique-identifier-oldarch,  
+> zod for form validations: https://www.npmjs.com/package/zod,  
+> husky and lint-staged for running git hooks: https://www.npmjs.com/package/husky & https://www.npmjs.com/package/lint-staged,  
+> eslint for linting: https://www.npmjs.com/package/eslint,  
+> commitlint for commit message checking: https://www.npmjs.com/package/commitlint,  
+> prettier for prettyfying: https://www.npmjs.com/package/prettier,  
     
 ## Features
 ### Device Registration
+Device is getting registered first, for that we're making a network call to a backend route (check endpoints.ts). for this we're passing a persistent-uuid which we're saving in the phone
 
 ### Auth
+Auth consists of login/signup (which're same, meaning if the user's no. exists, the user'd be logged in otherwise a new a/c would be created.)
 #### Login
+To Login, enter the phone number, accept TNC and enter the otp sent
 #### Signup
+To Signup, enter the phone number, accept TNC and enter the otp sent
 #### Account Selection & different types of accounts
+When an account has both Talent & Producer profiles available, we show an account selection screen
+
+> There're 3 types of accounts  
+> 1. Talent
+> 2. Producer
+> 3. Studio
 
 ### Navigation
+Check `presenters/index.tsx` file and `presenters/TabNavigator` file for navigation.  
+Tab navigator is getting changed for each types of profiles.
 
 ### Home Screen
+Check `presenters/Home.tsx` file for home screen content. It's responsible for Talent and Producer home screen. For Studio, check `presenters/studio` directory
 
 ### Blackbook
+Check `Blackbook.tsx` file for blackbook, blackbook meaning bookmarkin' a Talent and/or their videos.
 
 ### Search
+Check `presenters/search/Search.tsx` for search.
+
 ### Projects
+Check `Projects.tsx` file for projects view for producer.
+Check `TalentProjects.tsx` file for projects screen for talent.
+
 ### Calendar
+
 #### Talent Calendar
+> Check `TalentCalendarView.tsx` for calendar view of the Talent logged in  
+> Check `OtherTalentCalendarView.tsx` for calendar view of the other talents  
+
 #### Producer Calendar
+> Check `ProducerCalendarView.tsx` for calendar view of the Producer logged in  
+> Check `OtherProducerCalendarView.tsx` for calendar view of the other producers  
+
 #### Studio Calendar
+> Check `StudioCalendarView.tsx` for calendar view of the Studio logged in  
+> Check `OtherStudioCalendarView.tsx` for calendar view of the other studios  
+
 ### Messages
+Check `presenters/messages` directory for Everything releated to messages
+
 ### Notifications
+Check `Notifications.tsx` file for notifications
+
 ### Profile
 
 #### Talent Profile
+In Talent Profile, there's 3 tabs out there alongwith profile picture show and edit functionality
+
 ##### Talent Showreels
+In Talent Showreels, there's search & filters and list of videos  
+Initially we're only displaying list of showreels, and upon search query or filter we're changing the list to searched results from showreels results.
+
 ##### Talent Details
+Talent can edit his details like name, education, awards, location etc.
+
 ##### Other Films
+Talent can upload other types of films as well, on which he's worked on but it's not under any Production House. i.e. short films, reels, short videos etc.
 
 #### Producer Profile
+In Producer Profile, there's 3 tabs out there alongwith profile picture show and edit functionality
+
 ##### Producer Films
-	- Showreel Search & Filters
+In Producer Films, there's search & filters and list of videos  
+Initially we're only displaying list of producer films, and upon search query or filter we're changing the list to searched results from films results.
+
 ##### Business Info
+Producer can edit his details like name, education, awards, location etc.
+> **Note**: Only owner of Production house can edit the profile photo, details etc.
+
 ##### Team
-	- Team Search
+Team search is implemented locally
 
 #### Studio Profile
+It's a separate 3rd type of profile which are studios, Production house can book such studios and thus Production house and their team members and the Studio and their team members can have a chat for a project/booking
 
 ### Profile Share
+Deep linking is setup for profile sharing, enabling talent and producer profiles to be shared
+
 ### Deep Linking
-    
+For more info on deep linking, check `App.tsx` file & `AndroidManifest.xml` file for Android.
+For more info on deep linking, check `App.tsx` file & `Info.plist` file for iOS.
 
 ## Getting Started
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.  
+> **Note**: run these  
+`sudo npm i -g husky`  
+`sudo npm i -g lint-staged`  
 
 ### Step 1: Start the Metro Server
 
@@ -138,7 +192,10 @@ You've successfully run and modified your React Native App. :tada:
     
 
 ## Pre-requisites
-List software requirements, including Node.js, React Native CLI, Xcode, Android Studio, etc.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.  
+> **Note**: run these  
+`sudo npm i -g husky`  
+`sudo npm i -g lint-staged`  
     
 ## Installation
 step-by-step instructions on setting up the app locally:
@@ -244,18 +301,460 @@ components/             // contains all the components
     StudioItem.tsx                      // used in HomeStudios.tsx
     TalentThumbnailItem.tsx             // used in MostViewedTalent.tsx
   loaders/                              // contains all the loader views
-  profile/                              // contains all the profile views
+  profile/                              // not being used
   search/                               // contains search-related components
-  sheets/                               // contains sheet-related components
+	FilmSearches.tsx					// Film search results view
+	ProducerSearches.tsx				// Producer search results view
+	SearchSuggestions.tsx				// Search suggestions view
+	TalentSearches.tsx					// Talent search results view
+  sheets/                               // contains sheet/drawer components
+	addFilm/							// contains add film drawer used in both talent & producer add films button
+	addOtherFilm/						// contians add other film drawer used in talent screen in other films tab on click of add film
+	addTeamMemberSheet/					// add team member drawer used in producer and studio upon click of add team member button in the profile screen
+	block/								// block drawer used when blocking someone, asks for the confirmation to block
+	blockDates/							// block dates drawer aka self block for talent
+	calendar/							// not being used
+	cancelBlackout/						// cancel blackout drawer to cancel a self block date
+	cancelBooking/						// cancel booking drawer to cancel a booking, used in studio floor home screen
+	counterOffer/						// counter offer drawer, used in messaging screen, same for all types of profile
+	datePicker/							// not being used
+	delete/								// polymorphic drawer for delete action
+	deleteAccount/						// delete account drawer used in settings screen on press of delete account button
+	deleteGST/							// delete gst drawer, used in GSTDetails list item to delete the gst item, used in Slideable, asks for confirmation to delete gst item
+	deleteNotification/					// delete notification drawer, used in notifications screen on press of menu icon and then delete
+	editFilm/							// edit film drawer, used in both talent & producer to edit a film, wherever the edit film option is, this drawer is being used
+	editProfilePictureSheet/			// edit profile picture drawer, used in both talent & producer profile to edit profile picture
+	filmOptions/						// film options drawer, used in talent & producer both types of profiles screen, when ya click on menu icon on any film view, it opens up this film options drawer for ya to either pin film to top, or hide film or to edit the film
+	filterInvoices/						// filter invocies drawer, used in invocies screen, reachable from settings screen
+	hideFilm/							// hide film drawer, used in film options drawer, for both talent & producer profile
+	negotiation/						// negotiation drawer, used in messaging screen, same for both talent, producer & studio profile
+	notificationOptions/				// notification options drawer used in notifications screen, upon click of the menu icon, there a drawer shows up, this is it
+	optOut/								// opt out drawer, used in messaging screen, same for all types of profiles either talent, producer or studio
+	pinFilm/							// pin film drawer, success confirmation for the pin film action. used in film options drawer upon click of pin film button
+	producerTeamMemberManagement/		// producer team member management drawer, used while adding or modifying a team member access in teams tab of producer profile
+	profileExistingSheet/				// the profile already exists drawer, not being used but should be used after authentication
+	profileVerifiedSheet/				// profile verified drawer, not being used currently
+	profileVerifyingSheet/				// profile under verification drawer, not being used currently
+	removeTeamMemberSheet/				// remove team member sheet, confirmation drawer used while removing a team member from teams tab
+	report/								// report drawer, not being used, check report screen now
+	reportIssueSheet/					// not being used, check report screen now
+	reviseClaim/						// revise claim drawer, used in messaging, same for all types of profiles either talent, producer or studio
+	studioCounterOffer/					// studio counter offer drawer, used in messaging, for studio profile
+	studioNegotiation/					// studio negotation drawer, used in messaging, for studio profile
+	studioOptOut/						// studio opt out, used in messaging, for studio profile
+	studioRequest/						// studio request drawer, used to notify the user to mail to cs@touch.black to make the required changes as we don' support changing the studio profiles yet
+	studioReviseClaim/					// studio revise claim, used in messaging, only for studio and producer chats
+	studioTeamMemberManagement/			// studio team member management drawer, used in teams tab of studio profile
+	success/							// success drawer, used everywhere to show confirmation of an action
+	switchProfileSheet/					// swtich profile drawer, used in settings screen upon click of switch profile button to switch the profile to talent or producer profile
+	talentUnavailable/					// talent unavailable drawer, used in project creation's last step when a talent is not available
+	unarchive/							// unarchive drawer, used in archive blackbook screen in slidable, upon sliding the unarchive button press action gets executed and this drawer is shown
+	unblock/							// unblock drawer, used in block list screen, in slidables, upon sliding the unblock action gets executed and this drawer shows up, block list screen is accessed in settings screen
+	unlikeFilm/							// unlike film, used in blackbook profile screen, this drawer is seen upon clicking on the heart shape icon of the liked films, asks for the confirmation to unlike film
+	updateProducerProfile/				// update producer profile screen, used in producer profile screen in business details tab, upon clicking edit details, gets navigated to this screen
+	updateTalentProfile/				// update talent profile screen, used in talent profile screen in about tab, upon clicking edit details, gets navigated to this screen 
+	updateTalentProfileSheet/			// update talent profile drawer, not being used now, moved to a screen
   tabNavigator/                         // contains tab navigator components
+	HomeTabRoutes.tsx					// not being used now
+	TabNavigatorDefaultScreenOptions.tsx	// default styling of the tab navigator
+  Asterisk.tsx
+  AutoComplete.tsx
+  AutocompleteInput.tsx
+  AwardsInput.tsx
+  Checkbox.tsx
+  ContentRow.tsx
+  CustomTabView.tsx
+  DateInput.tsx
+  DismissKeyboardView.tsx
+  FilmItem.tsx
+  FloatingButton.tsx
+  FormFieldWrapper.tsx
+  Header.tsx
+  LabelWithTouchableIcon.tsx
+  Modal.tsx
+  NotificationItem.tsx
+  OTPInput.tsx
+  ProfileHeader.tsx
+  ScrollableHorizontalGrid.tsx
+  SearchInput.tsx
+  SearchedFilmListItem.tsx
+  Select.tsx
+  SelectDropDown.tsx
+  SelectPicker.tsx
+  StepsIndicator.tsx
+  StudioBookingHomeCard.tsx
+  TalentThumbnailCard.tsx
+  ToggleArchiveButton.tsx
+  UserItem.tsx
+  VideoPlayer.tsx					// video player component used wherever the video is being played, takes the video url and based on the er
+  ViewBox.tsx
+
 
 constants/              // contains all the constants and endpoints constants
+  constants.ts			// contains all the constants
+  endpoints.ts			// contains all the endpoints
+  routes.ts				// not being used
 ios/                    // contains all the ios-specific platform code
+	ci_scripts/			// contains all the ci/cd hooks for xcode cloud
 models/                 // contains all the enums, types, and interfaces and data models
+  dtos/
+  entities/
+  enums/
+  transformers/
 network/                // contains all the network calls
 node_modules/           // contains all the dependencies code
 presenters/             // contains all the views and screens used across the app
+  about/
+  auth/
+	personalDetails/
+	AccountSelect.tsx
+	Auth.tsx
+	AuthContext.tsx
+	authReducer.ts
+	schema.ts
+  bankDetails/
+	BankDetails.tsx
+	schema.ts
+  blackBook/
+	blackBookProfile/
+		ProfileNote.tsx
+		BlackBookProfile.tsx
+		CompactFilmItem.tsx
+		LikedFilms.tsx
+		ProfileHeader.tsx
+	ArchivedBlackBookList.tsx
+	BlackBook.tsx
+	BlackBookAccordion.tsx
+	BlackBookFooter.tsx
+	BlackBookHeader.tsx
+	BlackBookListByProfession.tsx
+	BlackbookProfessionsList.tsx
+	FilmThumbnailItemForBlackBook.tsx
+	blackBookTabs.tsx
+	useBlackBookData.tsx
+  block/
+	BlockItem.tsx
+	BlockList.tsx
+  carousel/
+	Carousel.tsx
+	carouselHooks.ts
+  claim/
+	AadharOTP/
+		AadharOTP.tsx
+		Success.tsx
+		schema.tsx
+	AadharForm.tsx
+	schema.ts
+  gst/
+	GSTDetails.tsx
+	GSTList.tsx
+	schema.ts
+	useGSTDetailsLogic.tsx
+	useGSTListLogic.tsx
+  invoices/
+	context/
+	invoiceDetails/
+	pop/
+	reducer/
+	InvoiceItem.tsx
+	InvoiceProjectItemHeader.tsx
+	Invoices.tsx
+	InvoicesHistory.tsx
+	InvoicesOverview.tsx
+	useInvoicesLogic.tsx
+  login/
+	Login.tsx
+	schema.ts
+  messages/
+	other-chats/
+		AddConversation.tsx
+		AllConversations.tsx
+		ConversationScreen.tsx
+		ConversationsList.tsx
+	project-chats/
+		Claim.tsx
+		ClaimCompleteMessage.tsx
+		ClaimMessage.tsx
+		ClaimTalentView.tsx
+		Confirmation.tsx
+		Counter.tsx
+		CounterTalentView.tsx
+		FieldItem.tsx
+		Invite.tsx
+		InvoiceMessage.tsx
+		NegotiationMessage.tsx
+		NormalMessage.tsx
+		ProjectConversation.tsx
+		ProjectConversationRenderItem.tsx
+		ProjectTalentsList.tsx
+		ProjectsList.tsx
+		StudioClaim.tsx
+		StudioClaimCompleteMessage.tsx
+		StudioClaimMessage.tsx
+		StudioClaimTalentView.tsx
+		StudioConfirmation.tsx
+		StudioConversation.tsx
+		StudioConversationRenderItem.tsx
+		StudioInvoiceMessage.tsx
+		StudioNegotiationMessage.tsx
+		StudioTemplateMessage.tsx
+		StudiosList.tsx
+		TalentsList.tsx
+		TemplateMessage.tsx
+		Triangle.tsx
+		Wrapper.tsx
+	ConversationItem.tsx
+	MessagesContext.tsx
+	Tabs.tsx
+  most-viewed/
+	MostViewedFilmList.tsx
+	MostViewedTalentList.tsx
+  panCard/
+	PanCardDetails.tsx
+	schema.ts
+  paymentClaim/
+	RaiseClaim.tsx
+	schema.ts
+  producerProfile/
+	Tabs/
+		BusinessDetails.tsx
+		Films.tsx
+		FilterContext.tsx
+		ProducerFilmsFilter.tsx
+		Team.tsx
+	screenComponents/
+		BookmarkProfile.tsx
+		MessageProfile.tsx
+		ProducerProfileHeader.tsx
+		SearchedProducerProfileHeader.tsx
+	ProducerProfile.tsx
+	ProducerTeamMembers.tsx
+	TalentList.tsx
+	TeamMember.tsx
+  projects/
+	create-project/
+		useInitializerStep2.tsx
+		Calendar.tsx
+		CreateProjectStep1.tsx
+		CreateProjectStep2.tsx
+		CreateProjectStep3.tsx
+		ProjectTalentSearch.tsx
+		SelectionGuide.tsx
+		Success.tsx
+		schema.ts
+		useInitializerStep1.tsx
+	day/
+		Day.tsx
+		OtherDay.tsx
+		useCalendarDayLogic.tsx
+		useOtherCalendarDayLogic.tsx
+	ProjectDetails.tsx
+	BlackoutDateCancel.tsx
+	BlackoutDates.tsx
+	CalendarView.tsx
+	CompletedProjects.tsx
+	DayWiseProjectCalendarView.tsx
+	EnquireProjects.tsx
+	EnquiryProjects.tsx
+	InterestedProjects.tsx
+	LiveProjects.tsx
+	NewProject.tsx
+	OptedOutProjects.tsx
+	OtherTalentCalendarView.tsx
+	ProducerCalendarView.tsx
+	ProducerProjectsPerDayView.tsx
+	ProjectCalendarView.tsx
+	ProjectContext.tsx
+	ProjectDetailsLoader.tsx
+	ProjectDetailsView.tsx
+	ProjectHeaderButtons.tsx
+	ProjectInvitationByProfession.tsx
+	ProjectItem.tsx
+	ProjectStepsIndicator.tsx
+	ProjectStudiosList.tsx
+	Projects.tsx
+	TalentCalendarView.tsx
+	TalentProjects.tsx
+	TalentProjectsItem.tsx
+	TalentProjectsPerDayView.tsx
+	useProjectCalendarLogic.tsx
+  report/
+	EmailInput.tsx
+	OtpInput.tsx
+	ReasonInput.tsx
+	schema.tsx
+  search/
+	Search.tsx
+  signup/
+	Signup.tsx
+	schema.ts
+  studio/
+	blackoutDates/
+		StudioBlackoutDates.tsx
+		schema.ts
+	booking/
+		Calendar.tsx
+		CustomMarker.tsx
+		StepsIndicator.tsx
+		StudioBookingStep1.tsx
+		StudioBookingStep2.tsx
+		StudioBookingStep3.tsx
+		StudioCard.tsx
+		StudioCardView.tsx
+		StudioContext.tsx
+		StudioFilter.tsx
+		StudioFloorAdvanceAmountFilter.tsx
+		StudioFloorAirConditionFilter.tsx
+		StudioFloorAreaFilter.tsx
+		StudioFloorCatwalkFilter.tsx
+		StudioFloorCityFilter.tsx
+		StudioFloorGeneratorBackupFilter.tsx
+		StudioFloorHeightFilter.tsx
+		StudioFloorOutdoorAreaFilter.tsx
+		StudioFloorRatePerShift.tsx
+		StudioFloorSoundProofFilter.tsx
+		Success.tsx
+		schema.tsx
+	components/
+		tabs/
+			AmenitiesTab.tsx
+			DetailsTab.tsx
+			PhotosTab.tsx
+		BookingCard.tsx
+		CheckCalendarCard.tsx
+		ListNewStudioCard.tsx
+		LocationVideoList.tsx
+		PhotoGallery.tsx
+		RevenueCard.tsx
+		RevenueOverview.tsx
+		StudioHeading.tsx
+		StudioInvoicesHistory.tsx
+		StudioInvoicesOverview.tsx
+		StudioProfileCard.tsx
+		StudioTitle.tsx
+		TabContent.tsx
+		TabNavigation.tsx
+		TableRow.tsx
+		UpcomingBookings.tsx
+	day/
+		Day.tsx
+		OtherDay.tsx
+		useCalendarDayLogic.tsx
+		useOtherCalendarDayLogic.tsx
+	messages/
+		ConversationsList.tsx
+		MessagesContext.tsx
+		StudioConversationItem.tsx
+		StudioConversationsList.tsx
+	mocks/
+	profile/
+		floor/
+			StudioCard.tsx
+		team/
+			MemoizedListItem.tsx
+			StudioTeamMembers.tsx
+			TalentList.tsx
+			TeamMember.tsx
+		Footer.tsx
+		Header.tsx
+		ProfileCard.tsx
+		StudioProfile.tsx
+		Tab.tsx
+		useStudioProfileLogic.tsx
+	welcome/
+		Welcome.tsx
+		useWelcomeLogic.tsx
+	Bookings.tsx
+	Home.tsx
+	OtherStudioCalendarView.tsx
+	ProjectItem.tsx
+	SelfBlock.tsx
+	StudioCalendarView.tsx
+	StudioContext.tsx
+	StudioFloorDetails.tsx
+	StudioHome.tsx
+	StudioInvoices.tsx
+	StudioProjectItem.tsx
+	StudioProjectsPerDayView.tsx
+	index.tsx
+  talent-type/
+	TalentTypeList.tsx
+  talentProfile/
+	Tabs/
+		FilterContext.tsx
+		ShowreelFilter.tsx
+		TalentAbout.tsx
+		TalentOtherWork.tsx
+		TalentShowReel.tsx
+		VideoListByProfession.tsx
+	screenComponents/
+		BookmarkProfile.tsx
+		MessageProfile.tsx
+		SearchedTalentProfileHeader.tsx
+		TalentProfileHeader.tsx
+	TalentProfile.tsx
+  tnc/
+	TNC.tsx
+  videoPlayer/
+	FullScreenVideoPlayer.tsx
+	VideoPlayer.tsx
+	VideoPlayerHeader.tsx
+  Calendar.tsx
+  Help.tsx
+  Home.tsx
+  LiveProjectCard.tsx
+  Notifications.tsx
+  Payments.tsx
+  PrivacyPolicy.tsx
+  ProjectCount.tsx
+  RegisterUser.tsx
+  SessionExpired.tsx
+  Settings.tsx
+  TabNavigator.tsx
+  index.tsx
+
 utils/                  // contains all the utility files
+  regex/
+  FontStyles.tsx
+  axios.ts
+  calendarColors.ts
+  capitalized.ts
+  colorUtil.ts
+  contactSupport.tsx
+  createAbsoluteImageUri.ts
+  createArray.ts
+  dataTransformToSelect.ts
+  enumToArray.ts
+  extractVideoInfo.ts
+  fetcher.ts
+  formatCurrency.ts
+  formatDate.ts
+  formatDates.ts
+  formatDuration.ts
+  formatName.ts
+  formatNumber.ts
+  formatTimeFromTimestamp.ts
+  formatTimestampForDay.ts
+  getColorForProject.ts
+  getDeviceInfo.ts
+  getRelativeTime.ts
+  hexToHsl.tsx
+  hslToHex.ts
+  iconmap.tsx
+  index.ts
+  jsonToFormData.ts
+  notify.ts
+  signout.ts
+  storage.ts
+  toCamelCase.ts
+  toggleElement.ts
+  transformTalentCalendarResponse.ts
+  truncate.ts
+  useAppStart.tsx
+  useAuthStorage.ts
+  useDebounce.ts
+  useGoBackHandler.tsx
+  useScrollAnimation.tsx
 
 .eslintrc.js            // Eslint config
 .gitignore              // Git Ignore file
@@ -281,3 +780,162 @@ unistyles.ts            // Unistyles config
     
 ## State Management
 [Read Context Data section](#context-data)
+
+## Versions
+> "@hookform/resolvers": "^3.3.4",  
+> "@notifee/react-native": "^7.8.2",  
+> "@ptomasroos/react-native-multi-slider": "^2.2.2",  
+> "@react-native-clipboard/clipboard": "^1.15.0",  
+> "@react-native-community/checkbox": "^0.5.17",  
+> "@react-native-community/datetimepicker": "^8.2.0",  
+> "@react-native-community/netinfo": "^11.3.2",  
+> "@react-native-firebase/analytics": "^20.1.0",  
+> "@react-native-firebase/app": "^20.1.0",  
+> "@react-native-firebase/crashlytics": "^20.1.0",  
+> "@react-native-firebase/messaging": "^20.1.0",  
+> "@react-native-masked-view/masked-view": "^0.2.8",  
+> "@react-native-picker/picker": "^2.8.0",  
+> "@react-navigation/bottom-tabs": "^6.5.20",  
+> "@react-navigation/drawer": "^6.6.15",  
+> "@react-navigation/native": "^6.1.17",  
+> "@react-navigation/native-stack": "^6.9.26",  
+> "@react-navigation/stack": "^6.4.0",  
+> "@shopify/flash-list": "^1.6.4",  
+> "@tanstack/react-query": "^5.40.0",  
+> "@touchblack/icons": "^0.0.33",  
+> "@touchblack/ui": "^0.0.36",  
+> "axios": "^1.6.8",  
+> "babel-plugin-module-resolver": "^5.0.2",  
+> "date-fns": "^3.6.0",  
+> "lodash": "^4.17.21",  
+> "lodash.clonedeep": "^4.5.0",  
+> "lodash.filter": "^4.6.0",  
+> "lodash.find": "^4.6.0",  
+> "lodash.groupby": "^4.6.0",  
+> "moment": "^2.30.1",  
+> "react": "18.2.0",  
+> "react-error-boundary": "^4.0.13",  
+> "react-hook-form": "^7.51.4",  
+> "react-native": "^0.73.7",  
+> "react-native-actions-sheet": "^0.9.3",  
+> "react-native-awesome-gallery": "^0.4.2",  
+> "react-native-bidirectional-infinite-scroll": "^0.3.3",  
+> "react-native-calendars": "^1.1306.0",  
+> "react-native-check-box": "^2.1.7",  
+> "react-native-context-menu-view": "^1.16.0",  
+> "react-native-date-picker": "^5.0.2",  
+> "react-native-document-picker": "^9.2.0",  
+> "react-native-error-boundary": "^1.2.4",  
+> "react-native-gesture-handler": "^2.16.2",  
+> "react-native-image-picker": "^7.2.2",  
+> "react-native-linear-gradient": "^2.8.3",  
+> "react-native-mmkv": "^2.12.2",  
+> "react-native-modal-datetime-picker": "^18.0.0",  
+> "react-native-pager-view": "^6.3.1",  
+> "react-native-popup-menu": "^0.16.1",  
+> "react-native-reanimated": "^3.11.0",  
+> "react-native-reanimated-table": "^0.0.2",  
+> "react-native-render-html": "^6.3.4",  
+> "react-native-restart": "^0.0.27",  
+> "react-native-safe-area-context": "^4.10.1",  
+> "react-native-screens": "^3.31.1",  
+> "react-native-select-dropdown": "^4.0.1",  
+> "react-native-skeleton-placeholder": "^5.2.4",  
+> "react-native-splash-screen": "^3.3.0",  
+> "react-native-svg": "^15.2.0",  
+> "react-native-unistyles": "^2.7.2",  
+> "react-native-vector-icons": "^10.1.0",  
+> "react-native-vimeo-iframe": "^1.2.1",  
+> "react-native-webview": "^13.10.3",  
+> "react-native-youtube-iframe": "^2.3.0",  
+> "rn-unique-identifier-oldarch": "^1.1.1",  
+> "swr": "^2.2.5",  
+> "zod": "^3.23.8"  
+> "@babel/core": "^7.20.0",  
+> "@babel/preset-env": "^7.20.0",  
+> "@babel/runtime": "^7.20.0",  
+> "@commitlint/config-conventional": "^19.2.2",  
+> "@react-native/babel-preset": "0.74.81",  
+> "@react-native/eslint-config": "0.74.81",  
+> "@react-native/metro-config": "0.74.81",  
+> "@react-native/typescript-config": "0.74.81",  
+> "@types/react": "^18.2.6",  
+> "@types/react-test-renderer": "^18.0.0",  
+> "babel-jest": "^29.6.3",  
+> "commitizen": "^4.3.0",  
+> "commitlint": "^19.3.0",  
+> "cz-conventional-changelog": "^3.3.0",  
+> "eslint": "^8.19.0",  
+> "husky": "^9.0.11",  
+> "jest": "^29.6.3",  
+> "lint-staged": "^15.2.2",  
+> "prettier": "2.8.8",  
+> "react-test-renderer": "18.2.0",  
+> "typescript": "5.0.4"  
+> "node": ">=18"  
+> "JDK": "17"
+
+## Api Docs
+Staging - https://dev.touch.black/api-docs/index.html  
+Test - https://test.touch.black/api-docs/index.html  
+Main/Prod - https://api.touch.black/api-docs/index.html  
+
+## Styling Guides
+> **Note**: use `createStylesheet` instead of `Stylesheet.create` and access colors, font family, font size, border size, padding & margin from theme.
+
+## Build Generation
+### Android  
+```
+cd android
+```
+
+```
+# for release build
+./gradlew assembleRelease
+```
+
+```
+# for debug build
+./gradlew assembleDebug
+```
+
+```
+# for release bundle
+./gradlew bundleRelease
+```
+
+```
+# for debug bundle
+./gradlew bundleRelease
+```
+
+### iOS 
+```
+cd ios
+```
+
+```
+1. click 'Product' option in XCode
+2. click 'Archive' option in that list which came from 1
+```
+
+> **Note**: make sure to create production builds from `main` branch and check the env variable INTERNAL is set correctly
+
+## Deployment
+
+### Android
+0. Go to https://play.google.com/console/u/3/developers/6872250137193235204/app-list
+1. Create a production release
+2. Click on the 'Upload bundle' button and upload the generated bundle
+3. Modify the version name
+4. Add release notes
+5. Submit the release for review
+6. If Managed publishing is on, then push the updates live upon successful review
+
+### iOS
+0. Go to https://appstoreconnect.apple.com/apps/6504214097/distribution/ios/version/deliverable
+1. Create a production release
+2. Select the appropriate build
+3. Add release notes
+4. Submit the release for review
+5. If Managed publishing is on, then push the updates live upon successful review

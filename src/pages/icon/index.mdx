@@ -1,1 +1,40 @@
 ## Overview
+It's an icon system used in touchblack projects
+
+## Base
+Used `react-native-svg` as base to create icons for react native
+
+## Usage
+
+How it works:
+1. we export svg icons first
+2. then we convert the svg code into nested array syntax, check any `dist/icons/{icon}.tsx` file for more info.
+3. now we can use that nested array to generate svg in any framework/for any platform
+4. `createIcon` method converts these nestedArrays to Svgs in react native. while doing so it uses `react-native-svg`'s Svg Elements.
+
+## How to use in projects
+```
+npm i @touchblack/icons
+
+npm i react-native-svg
+
+(cuz i'm not bundling the icons at my side as they're gonna get bundled again to be included in the app, so you'll need to add this package so that it creates app bundles alongwith the icons used)
+```
+
+```
+import {ActionDirector} from '@touchblack/icons'
+
+const App = () => {
+	return <View>
+		<ActionDirector color="red" size="300" strokeColor="blue" />
+	<View>
+}
+```
+
+Props:
+- color | required: false,
+description: can be any color value(hex, name etc.). similar to fill in svgs
+- size | required: false, 
+description: can be any size value
+- strokeColor | required: false,
+description: can be any color value(hex, name etc.) similar to color in svgs to assign stroke a specific color
