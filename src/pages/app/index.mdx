@@ -47,17 +47,18 @@ To Signup, enter the phone number, accept TNC and enter the otp sent
 #### Account Selection & different types of accounts
 When an account has both Talent & Producer profiles available, we show an account selection screen
 
-> There're 3 types of accounts  
+> There're 4 types of accounts  
 > 1. Talent
 > 2. Producer
 > 3. Studio
+> 4. Manager
 
 ### Navigation
 Check `presenters/index.tsx` file and `presenters/TabNavigator` file for navigation.  
 Tab navigator is getting changed for each types of profiles.
 
 ### Home Screen
-Check `presenters/Home.tsx` file for home screen content. It's responsible for Talent and Producer home screen. For Studio, check `presenters/studio` directory
+Check `presenters/Home.tsx` file for home screen content. It's responsible for Talent and Producer home screen. For Studio, check `presenters/studio` directory, For Manager, check `presenters/assignManager` directory
 
 ### Blackbook
 Check `Blackbook.tsx` file for blackbook, blackbook meaning bookmarkin' a Talent and/or their videos.
@@ -68,6 +69,18 @@ Check `presenters/search/Search.tsx` for search.
 ### Projects
 Check `Projects.tsx` file for projects view for producer.
 Check `TalentProjects.tsx` file for projects screen for talent.
+
+### Subscriptions
+Check `Presenters/subscription/Subscriptions.tsx` for Subscrption feature related details,
+This module contains displaying the popup's and banner based on th subscription status of the user, and showing him the option to opt-out or subscribe to access the features,
+Check `Settings/Subscriptions` this contains the complete details of the current subscription and the billing history of the user,
+Also the restrictions are applied to certain feature and  popup's are displayed in required screens, like project chats, search, notification, talent calender, blackbook, and talent profile.
+
+### Manager 
+Check  `Presenters/assignManager/AssignManager.tsx` for assignManager feature related details.
+This module contains the complete details of manager account and the features he have access to,
+The manager can be assigned from a talent to manage his profile,
+The manager have access to certain features of the talent related to project allocation and calender management, notifications, talent profile, project chats.
 
 ### Calendar
 
@@ -121,13 +134,24 @@ Team search is implemented locally
 #### Studio Profile
 It's a separate 3rd type of profile which are studios, Production house can book such studios and thus Production house and their team members and the Studio and their team members can have a chat for a project/booking
 
+#### Manager Profile
+It contains the personal details of the manager,
+
+##### Personel details
+The personal details of manager is attached, such as name, profession, profile picture.
+
+##### List of clients
+The manager can see the list of clients in his profile that he can manage, and he has complete access of the talent profile.
+
+##### Settings
+The manager will be able to add his GST details, PAN details and bank details as required, and payment related details.
+
 ### Profile Share
 Deep linking is setup for profile sharing, enabling talent and producer profiles to be shared
 
 ### Deep Linking
 For more info on deep linking, check `App.tsx` file & `AndroidManifest.xml` file for Android.
 For more info on deep linking, check `App.tsx` file & `Info.plist` file for iOS.
-
 ## Getting Started
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.  
@@ -342,9 +366,10 @@ components/             // contains all the components
 	studioCounterOffer/					// studio counter offer drawer, used in messaging, for studio profile
 	studioNegotiation/					// studio negotation drawer, used in messaging, for studio profile
 	studioOptOut/						// studio opt out, used in messaging, for studio profile
-	studioRequest/						// studio request drawer, used to notify the user to mail to cs@touch.black to make the required changes as we don' support changing the studio profiles yet
+	studioRequest/						// studio request drawer, used to notify the user to mail to cs@touch.black to make the required changes as we don't support changing the studio profiles yet
 	studioReviseClaim/					// studio revise claim, used in messaging, only for studio and producer chats
 	studioTeamMemberManagement/			// studio team member management drawer, used in teams tab of studio profile
+	subscription/                       // this folder contains the pop up's related to subscriptions and subscription restrictions, used in home screen and subscription screen under settings
 	success/							// success drawer, used everywhere to show confirmation of an action
 	switchProfileSheet/					// swtich profile drawer, used in settings screen upon click of switch profile button to switch the profile to talent or producer profile
 	talentUnavailable/					// talent unavailable drawer, used in project creation's last step when a talent is not available
@@ -405,6 +430,22 @@ network/                // contains all the network calls
 node_modules/           // contains all the dependencies code
 presenters/             // contains all the views and screens used across the app
   about/
+	AddYourEmail.tsx                        // to add the email, used in settings screen
+	OtpValidation.tsx                       // used to validate the OTP while adding the email
+  assignManager/
+	AssignManager.tsx  						// first step of assign manager flow, ask for invoice permission
+	AssignManagerBanner.tsx 				// this banner is displayed in the home screen, to initiate assign manager flow
+	ChangeManager.tsx 						// first step of change manager flow
+	ChangeManagerBanner.tsx					// this is banner in diplayed in the home screen, to intiate to change manager
+	ManagerChats.tsx						// contains the chats of the selected talent
+	ManagerInvoices.tsx						// contains the invoice details of manager
+	ManagerOtpValidation.tsx				// validates otp to assignManager and changeManager
+	ManagerProfile.tsx 						// profile of the manager 
+	ManagerSuccessPopup.tsx					// pop up shown on new manager assigned or changed	
+	ManagerTalentContext.tsx				// used to store the list of assigned telents to manager
+	ManagerTalentDropDown.tsx				// dropdown used to select the assigned talents of the manager
+	RemoveManagerPopup.tsx					// pop up to show remove manager confirmation
+	WelcomeManager.tsx						// a screen to show as soon as the manager logins
   auth/
 	personalDetails/
 	AccountSelect.tsx
@@ -447,6 +488,7 @@ presenters/             // contains all the views and screens used across the ap
 	schema.ts
   gst/
 	GSTDetails.tsx
+	GSTInDetail.tsx										// to see the gst in datil
 	GSTList.tsx
 	schema.ts
 	useGSTDetailsLogic.tsx
@@ -677,6 +719,12 @@ presenters/             // contains all the views and screens used across the ap
 	StudioProjectItem.tsx
 	StudioProjectsPerDayView.tsx
 	index.tsx
+  subscriptions/
+	BillingHistory.tsx                		// Contains the billing cycles of subscription of the user
+	CancelSubscription.tsx			  		// contains cancel subscription feature
+	StandardSubscription.tsx		  		// contains the subscription plan details
+	subscriptionRestrictionsContext.tsx 	// contains the restrction pop ups content
+	Subscriptions.tsx						// contains the complete subscription details of the user, used in settings screen
   talent-type/
 	TalentTypeList.tsx
   talentProfile/
